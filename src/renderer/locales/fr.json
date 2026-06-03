@@ -1,0 +1,83 @@
+{
+  "app": {
+    "name": "Téléchargement Telegram",
+    "version": "v1.0.0"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "history": "Historique",
+    "settings": "Paramètres"
+  },
+  "dashboard": {
+    "botStatus": {
+      "running": "Bot en marche",
+      "stopped": "Bot arrêté",
+      "starting": "Démarrage..."
+    },
+    "startBot": "Démarrer le Bot",
+    "stopBot": "Arrêter le Bot",
+    "downloadFolder": "Dossier de téléchargement",
+    "browse": "Parcourir",
+    "dropHere": "Déposez le dossier ici",
+    "dropActive": "Relâchez pour définir le dossier",
+    "log": "Journal",
+    "clearLog": "Effacer"
+  },
+  "history": {
+    "title": "Historique des téléchargements",
+    "search": "Rechercher des fichiers...",
+    "noResults": "Aucun téléchargement pour l'instant",
+    "noResultsFilter": "Aucun fichier ne correspond à votre recherche",
+    "clearAll": "Tout effacer",
+    "delete": "Supprimer",
+    "deleteConfirm": "Supprimer ce fichier ?",
+    "openFile": "Ouvrir le fichier",
+    "openFolder": "Ouvrir le dossier"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "save": "Enregistrer les paramètres",
+    "saved": "Paramètres enregistrés !",
+    "bot": {
+      "title": "Configuration du Bot",
+      "token": "Token du Bot",
+      "tokenPlaceholder": "Entrez le token de @BotFather",
+      "userId": "ID utilisateur autorisé",
+      "userIdPlaceholder": "Entrez l'ID Telegram à autoriser"
+    },
+    "download": {
+      "title": "Téléchargement",
+      "folder": "Dossier de téléchargement"
+    },
+    "language": {
+      "title": "Langue",
+      "en": "English",
+      "ar": "العربية",
+      "fr": "Français"
+    },
+    "theme": {
+      "title": "Thème",
+      "current": "Actuel :",
+      "aurora": "Aurore",
+      "neon": "Néon",
+      "sunset": "Coucher de soleil",
+      "ocean": "Océan",
+      "midnight": "Minuit",
+      "forest": "Forêt",
+      "cyberpunk": "Cyberpunk",
+      "light": "Lumineux"
+    },
+    "options": {
+      "title": "Options",
+      "autoStart": "Démarrer le bot automatiquement au lancement",
+      "notifications": "Notifications système",
+      "minimizeToTray": "Réduire dans la barre des tâches à la fermeture"
+    }
+  },
+  "errors": {
+    "noToken": "Veuillez d'abord définir le token du bot",
+    "noUserId": "Veuillez définir l'ID utilisateur autorisé",
+    "invalidFolder": "Le dossier de téléchargement n'existe pas",
+    "botError": "Erreur du bot : {error}"
+  }
+}

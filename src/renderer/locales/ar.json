@@ -1,0 +1,83 @@
+{
+  "app": {
+    "name": "تنزيل التليجرام",
+    "version": "v1.0.0"
+  },
+  "sidebar": {
+    "dashboard": "لوحة التحكم",
+    "history": "السجل",
+    "settings": "الإعدادات"
+  },
+  "dashboard": {
+    "botStatus": {
+      "running": "البوت يعمل",
+      "stopped": "البوت متوقف",
+      "starting": "جارٍ التشغيل..."
+    },
+    "startBot": "تشغيل البوت",
+    "stopBot": "إيقاف البوت",
+    "downloadFolder": "مجلد التنزيل",
+    "browse": "تصفح",
+    "dropHere": "أسقط المجلد هنا",
+    "dropActive": "أفلت لتعيين المجلد",
+    "log": "السجل",
+    "clearLog": "مسح"
+  },
+  "history": {
+    "title": "سجل التنزيل",
+    "search": "ابحث عن الملفات...",
+    "noResults": "لا توجد تنزيلات بعد",
+    "noResultsFilter": "لا توجد ملفات تطابق بحثك",
+    "clearAll": "مسح الكل",
+    "delete": "حذف",
+    "deleteConfirm": "حذف هذا الملف؟",
+    "openFile": "فتح الملف",
+    "openFolder": "فتح المجلد"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "save": "حفظ الإعدادات",
+    "saved": "تم حفظ الإعدادات!",
+    "bot": {
+      "title": "إعدادات البوت",
+      "token": "رمز البوت",
+      "tokenPlaceholder": "أدخل رمز البوت من @BotFather",
+      "userId": "معرف المستخدم المسموح",
+      "userIdPlaceholder": "أدخل معرف مستخدم التليجرام"
+    },
+    "download": {
+      "title": "التنزيل",
+      "folder": "مجلد التنزيل"
+    },
+    "language": {
+      "title": "اللغة",
+      "en": "English",
+      "ar": "العربية",
+      "fr": "Français"
+    },
+    "theme": {
+      "title": "المظهر",
+      "current": "الحالي:",
+      "aurora": "الشفق",
+      "neon": "نيون",
+      "sunset": "غروب الشمس",
+      "ocean": "المحيط",
+      "midnight": "منتصف الليل",
+      "forest": "الغابة",
+      "cyberpunk": "سايبربانك",
+      "light": "فاتح"
+    },
+    "options": {
+      "title": "الخيارات",
+      "autoStart": "تشغيل البوت تلقائياً عند البدء",
+      "notifications": "إشعارات النظام",
+      "minimizeToTray": "تصغير إلى شريط المهام عند الإغلاق"
+    }
+  },
+  "errors": {
+    "noToken": "يرجى تعيين رمز البوت أولاً",
+    "noUserId": "يرجى تعيين معرف المستخدم المسموح",
+    "invalidFolder": "مجلد التنزيل غير موجود",
+    "botError": "خطأ في البوت: {error}"
+  }
+}

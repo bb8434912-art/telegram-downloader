@@ -1,0 +1,83 @@
+{
+  "app": {
+    "name": "Telegram Downloader",
+    "version": "v1.0.0"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "history": "History",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "botStatus": {
+      "running": "Bot Running",
+      "stopped": "Bot Stopped",
+      "starting": "Starting..."
+    },
+    "startBot": "Start Bot",
+    "stopBot": "Stop Bot",
+    "downloadFolder": "Download Folder",
+    "browse": "Browse",
+    "dropHere": "Drop folder here",
+    "dropActive": "Release to set folder",
+    "log": "Log",
+    "clearLog": "Clear"
+  },
+  "history": {
+    "title": "Download History",
+    "search": "Search files...",
+    "noResults": "No downloads yet",
+    "noResultsFilter": "No files match your search",
+    "clearAll": "Clear All",
+    "delete": "Delete",
+    "deleteConfirm": "Delete this file?",
+    "openFile": "Open File",
+    "openFolder": "Open Folder"
+  },
+  "settings": {
+    "title": "Settings",
+    "save": "Save Settings",
+    "saved": "Settings saved!",
+    "bot": {
+      "title": "Bot Configuration",
+      "token": "Bot Token",
+      "tokenPlaceholder": "Enter your bot token from @BotFather",
+      "userId": "Allowed User ID",
+      "userIdPlaceholder": "Enter the Telegram user ID to allow"
+    },
+    "download": {
+      "title": "Download",
+      "folder": "Download Folder"
+    },
+    "language": {
+      "title": "Language",
+      "en": "English",
+      "ar": "العربية",
+      "fr": "Français"
+    },
+    "theme": {
+      "title": "Theme",
+      "current": "Current:",
+      "aurora": "Aurora",
+      "neon": "Neon Nights",
+      "sunset": "Sunset",
+      "ocean": "Ocean",
+      "midnight": "Midnight",
+      "forest": "Forest",
+      "cyberpunk": "Cyberpunk",
+      "light": "Minimal Light"
+    },
+    "options": {
+      "title": "Options",
+      "autoStart": "Auto-start bot on launch",
+      "notifications": "System notifications",
+      "minimizeToTray": "Minimize to tray on close"
+    }
+  },
+  "errors": {
+    "noToken": "Please set your bot token first",
+    "noUserId": "Please set the allowed user ID",
+    "invalidFolder": "Download folder does not exist",
+    "botError": "Bot error: {error}"
+  }
+}
