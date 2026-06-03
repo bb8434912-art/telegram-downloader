@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="theme-aurora">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+  <title data-i18n="app.name">Telegram Downloader</title>
+  <link rel="icon" href="./assets/icon-BXM_kEZH.svg">
+
+  <script type="module" crossorigin src="./assets/index-DPwbL55J.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-mojVKuhs.css">
+</head>
+<body class="m-0 p-0 overflow-hidden font-sans bg-[var(--bg-primary)] text-[var(--text-primary)] transition-all duration-500 select-none">
+  <canvas id="particleCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+  <div id="app" class="flex h-screen w-screen relative z-10">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-60 flex-shrink-0 flex flex-col backdrop-blur-2xl bg-[var(--glass-bg)] border-r border-[var(--glass-border)] transition-all duration-500">
+      <div class="p-6 flex items-center gap-3 border-b border-[var(--glass-border)]">
+        <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3e%3cdefs%3e%3clinearGradient%20id='bg'%20x1='0'%20y1='0'%20x2='512'%20y2='512'%3e%3cstop%20offset='0%25'%20stop-color='%236366f1'/%3e%3cstop%20offset='100%25'%20stop-color='%2306b6d4'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect%20width='512'%20height='512'%20rx='100'%20fill='url(%23bg)'/%3e%3cg%20transform='translate(256,240)'%3e%3cpath%20d='M-80%2080L-60-80l180-60L-70%2060l50-40'%20fill='none'%20stroke='%23fff'%20stroke-width='20'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cg%20transform='translate(340,340)'%3e%3ccircle%20cx='0'%20cy='0'%20r='36'%20fill='none'%20stroke='rgba(255,255,255,0.3)'%20stroke-width='4'/%3e%3cpath%20d='M0-18v36M-18%200h36'%20stroke='%23fff'%20stroke-width='6'%20stroke-linecap='round'/%3e%3c/g%3e%3c/svg%3e" class="w-8 h-8" alt="logo">
+        <span class="text-lg font-semibold tracking-tight" data-i18n="app.name">Telegram Downloader</span>
+      </div>
+
+      <nav class="flex-1 p-3 space-y-1">
+        <button data-page="dashboard" class="nav-btn active w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span data-i18n="sidebar.dashboard">Dashboard</span>
+        </button>
+        <button data-page="history" class="nav-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span data-i18n="sidebar.history">History</span>
+        </button>
+        <button data-page="settings" class="nav-btn w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span data-i18n="sidebar.settings">Settings</span>
+        </button>
+      </nav>
+
+      <div class="p-4 border-t border-[var(--glass-border)] text-xs text-[var(--text-secondary)]">
+        <span data-i18n="app.version">v1.0.0</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col overflow-hidden">
+      <!-- Top Bar -->
+      <header class="flex items-center justify-between px-6 py-3 backdrop-blur-2xl bg-[var(--glass-bg)] border-b border-[var(--glass-border)] transition-all duration-500">
+        <div class="flex items-center gap-4">
+          <div id="statusBadge" class="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-500">
+            <span id="statusDot" class="w-2 h-2 rounded-full bg-gray-500"></span>
+            <span id="statusText" data-i18n="dashboard.botStatus.stopped">Bot Stopped</span>
+          </div>
+          <span id="statsDisplay" class="text-xs text-[var(--text-secondary)] hidden"></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="themeBtn" class="p-2 rounded-xl hover:bg-[var(--glass-bg)] transition-all duration-200 group relative" title="Switch Theme">
+            <svg class="w-5 h-5 text-[var(--text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+          </button>
+          <button id="langBtn" class="p-2 rounded-xl hover:bg-[var(--glass-bg)] transition-all duration-200 group relative" title="Switch Language">
+            <svg class="w-5 h-5 text-[var(--text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Pages -->
+      <div class="flex-1 overflow-auto p-6">
+        <!-- Dashboard -->
+        <div id="page-dashboard" class="page active space-y-6">
+          <!-- Bot Controls -->
+          <div class="glass-card p-6 rounded-2xl">
+            <div class="flex items-center gap-4 mb-4">
+              <button id="startBotBtn" class="btn-primary flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+                <span data-i18n="dashboard.startBot">Start Bot</span>
+              </button>
+              <button id="stopBotBtn" class="btn-secondary flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 opacity-50 cursor-not-allowed" disabled>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8 7a1 1 0 00-1 1v4a1 1 0 001 1h4a1 1 0 001-1V8a1 1 0 00-1-1H8z" clip-rule="evenodd"/></svg>
+                <span data-i18n="dashboard.stopBot">Stop Bot</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Download Folder -->
+          <div class="glass-card p-6 rounded-2xl">
+            <label class="block text-sm font-medium mb-2 text-[var(--text-secondary)]" data-i18n="dashboard.downloadFolder">Download Folder</label>
+            <div class="flex gap-2">
+              <div class="flex-1 flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-secondary)] border-2 border-dashed border-[var(--glass-border)] transition-all duration-300 cursor-pointer hover:border-[var(--accent)]" id="folderDropZone">
+                <svg class="w-5 h-5 flex-shrink-0 text-[var(--text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                <span id="folderPathDisplay" class="text-sm truncate text-[var(--text-secondary)]">C:\Users\...\telegram_downloads</span>
+              </div>
+              <button id="browseFolderBtn" class="btn-secondary flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                <span data-i18n="dashboard.browse">Browse</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Logs -->
+          <div class="glass-card p-6 rounded-2xl flex-1">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-medium text-[var(--text-secondary)]" data-i18n="dashboard.log">Log</h3>
+              <button id="clearLogBtn" class="text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors">Clear</button>
+            </div>
+            <div id="logContainer" class="h-64 overflow-y-auto rounded-xl bg-[var(--bg-secondary)] p-4 text-xs font-mono leading-relaxed">
+              <div id="logEntries"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- History -->
+        <div id="page-history" class="page space-y-6 hidden">
+          <div class="flex items-center gap-4">
+            <div class="relative flex-1">
+              <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <input type="text" id="historySearch" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[var(--bg-secondary)] border border-[var(--glass-border)] text-sm outline-none focus:border-[var(--accent)] transition-colors" data-i18n-placeholder="history.search" placeholder="Search files...">
+            </div>
+            <button id="clearHistoryBtn" class="btn-secondary px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200">
+              <span data-i18n="history.clearAll">Clear All</span>
+            </button>
+          </div>
+
+          <div id="historyGrid" class="grid grid-cols-4 gap-4">
+            <div id="historyEmpty" class="col-span-4 flex flex-col items-center justify-center py-16 text-[var(--text-secondary)]">
+              <svg class="w-16 h-16 mb-4 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <p class="text-sm" data-i18n="history.noResults">No downloads yet</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings -->
+        <div id="page-settings" class="page space-y-6 hidden">
+          <div class="glass-card p-6 rounded-2xl">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span data-i18n="settings.bot.title">Bot Configuration</span>
+            </h3>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-medium text-[var(--text-secondary)] mb-1.5" data-i18n="settings.bot.token">Bot Token</label>
+                <input type="password" id="settingToken" class="w-full px-4 py-2.5 rounded-xl bg-[var(--bg-secondary)] border border-[var(--glass-border)] text-sm outline-none focus:border-[var(--accent)] transition-colors" data-i18n-placeholder="settings.bot.tokenPlaceholder" placeholder="Enter your bot token">
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-[var(--text-secondary)] mb-1.5" data-i18n="settings.bot.userId">Allowed User ID</label>
+                <input type="text" id="settingUserId" class="w-full px-4 py-2.5 rounded-xl bg-[var(--bg-secondary)] border border-[var(--glass-border)] text-sm outline-none focus:border-[var(--accent)] transition-colors" data-i18n-placeholder="settings.bot.userIdPlaceholder" placeholder="Enter Telegram user ID">
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+              <span data-i18n="settings.download.title">Download</span>
+            </h3>
+            <div>
+              <label class="block text-xs font-medium text-[var(--text-secondary)] mb-1.5" data-i18n="settings.download.folder">Download Folder</label>
+              <div class="flex gap-2">
+                <input type="text" id="settingFolder" class="flex-1 px-4 py-2.5 rounded-xl bg-[var(--bg-secondary)] border border-[var(--glass-border)] text-sm outline-none focus:border-[var(--accent)] transition-colors">
+                <button id="settingBrowseBtn" class="btn-secondary px-4 py-2.5 rounded-xl text-sm transition-all duration-200" data-i18n="dashboard.browse">Browse</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span data-i18n="settings.language.title">Language</span>
+            </h3>
+            <select id="settingLanguage" class="w-full px-4 py-2.5 rounded-xl bg-[var(--bg-secondary)] border border-[var(--glass-border)] text-sm outline-none focus:border-[var(--accent)] transition-colors">
+              <option value="en" data-i18n="settings.language.en">English</option>
+              <option value="ar" data-i18n="settings.language.ar">العربية</option>
+              <option value="fr" data-i18n="settings.language.fr">Français</option>
+            </select>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+              <span data-i18n="settings.theme.title">Theme</span>
+            </h3>
+            <div class="flex items-center gap-3">
+              <span class="text-sm text-[var(--text-secondary)]" data-i18n="settings.theme.current">Current:</span>
+              <span id="currentThemeName" class="text-sm font-medium">Aurora</span>
+            </div>
+            <div class="mt-3 flex gap-2 flex-wrap" id="themeSwatches">
+              <button data-theme="aurora" class="theme-swatch w-8 h-8 rounded-full border-2 border-transparent transition-all duration-200" style="background: linear-gradient(135deg, #4338ca, #0891b2)" title="Aurora"></button>
+              <button data-theme="neon" class="theme-swatch w-8 h-8 rounded-full border-2 border-transparent transition-all duration-200" style="background: linear-gradient(135deg, #ec4899, #06b6d4)" title="Neon Nights"></button>
+              <button data-theme="sunset" class="theme-swatch w-8 h-8 rounded-full border-2 border-transparent transition-all duration-200" style="background: linear-gradient(135deg, #f97316, #ec4899)" title="Sunset"></button>
+              <button data-theme="ocean" class="theme-swatch w-8 h-8 rounded-full border-2 border-transparent transition-all duration-200" style="background: linear-gradient(135deg, #0ea5e9, #06b6d4)" title="Ocean"></button>
+              <button data-theme="midnight" class="theme-swatch w-8 h-8 rounded-full border-2 border-transparent transition-all duration-200" style="background: linear-gradient(135deg, #1e293b, #475569)" title="Midnight"></button>
+              <button data-theme="forest" class="theme-swatch w-8 h-8 rounded-full border-2 border-transparent transition-all duration-200" style="background: linear-gradient(135deg, #059669, #10b981)" title="Forest"></button>
+              <button data-theme="cyberpunk" class="theme-swatch w-8 h-8 rounded-full border-2 border-transparent transition-all duration-200" style="background: linear-gradient(135deg, #ec4899, #fbbf24)" title="Cyberpunk"></button>
+              <button data-theme="light" class="theme-swatch w-8 h-8 rounded-full border-2 border-transparent transition-all duration-200" style="background: linear-gradient(135deg, #e2e8f0, #94a3b8)" title="Minimal Light"></button>
+            </div>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span data-i18n="settings.options.title">Options</span>
+            </h3>
+            <div class="space-y-3">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" id="optAutoStart" class="w-4 h-4 rounded accent-[var(--accent)]">
+                <span class="text-sm" data-i18n="settings.options.autoStart">Auto-start bot on launch</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" id="optNotifications" class="w-4 h-4 rounded accent-[var(--accent)]">
+                <span class="text-sm" data-i18n="settings.options.notifications">System notifications</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" id="optMinimizeTray" class="w-4 h-4 rounded accent-[var(--accent)]">
+                <span class="text-sm" data-i18n="settings.options.minimizeToTray">Minimize to tray on close</span>
+              </label>
+            </div>
+          </div>
+
+          <button id="saveSettingsBtn" class="btn-primary w-full py-3 rounded-xl text-sm font-semibold transition-all duration-200">
+            <span data-i18n="settings.save">Save Settings</span>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Preview Overlay -->
+  <div id="previewOverlay" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm">
+    <div class="absolute top-4 right-4 flex gap-2 z-10">
+      <button id="previewOpenBtn" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-all" title="Open File">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </button>
+      <button id="previewDeleteBtn" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-all" title="Delete File">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+      </button>
+      <button id="previewCloseBtn" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-all" title="Close">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="flex items-center justify-center h-full p-16">
+      <button id="previewPrevBtn" class="absolute left-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <img id="previewImage" class="max-h-full max-w-full object-contain rounded-2xl shadow-2xl" alt="preview">
+      <button id="previewNextBtn" class="absolute right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div id="previewInfo" class="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-xl bg-white/10 text-white text-sm"></div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-40 flex flex-col gap-2"></div>
+
+</body>
+</html>
